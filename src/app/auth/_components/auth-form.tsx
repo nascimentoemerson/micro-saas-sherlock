@@ -3,10 +3,16 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useForm } from "react-hook-form"
 
 export function AuthForm() {
+    const form = useForm()
+
+    const handleSubmit = form.handleSubmit((data) => {
+        console.log(data)
+    })
     return (
-        <form key="1" className="flex items-center justify-center min-h-screen">
+        <div key="1" className="flex items-center justify-center min-h-screen">
             <div className="mx-auto max-w-5xl px-4 space-y-8">
                 <div className="flex flex-col lg:flex-row lg:space-x-8">
                     <div className="hidden lg:flex items-center space-x-4 justify-center">
@@ -15,16 +21,16 @@ export function AuthForm() {
                             <p className="text-gray-500 dark:text-gray-400">Estamos felizes em te ver novamente.</p>
                         </div>
                     </div>
-                    <div className="w-full max-w-sm space-y-4">
+                    <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="email">E-mail</Label>
-                            <Input id="email" placeholder="m@example.com" type="email" />
+                            <Input id="email" placeholder="fulano@example.com" type="email" {...form.register('email')} />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="password">Senha</Label>
-                            <Input id="password" type="password" />
+                            <Input id="password" type="password" {...form.register('password')} />
                         </div>
-                        <Button className="w-full">Entrar com E-mail</Button>
+                        <Button className="w-full" type="submit">Entrar com E-mail</Button>
                         <Button className="w-full">Entrar com Google</Button>
                         <Link className="text-sm underline text-center" href="#">
                             Esqueceu sua senha?
@@ -35,9 +41,9 @@ export function AuthForm() {
                                 Cadastre-se
                             </Link>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     );
 }
