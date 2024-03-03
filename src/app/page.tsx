@@ -1,5 +1,5 @@
-export default function Home() {
+export default function LandingPage() {
   return (
-    <main>Página Inicial</main>
+    <main>Landing Page</main>
   );
 }
