@@ -12,7 +12,7 @@ function capitalizeFirstLetters(string: string) {
 }
 
 export default async function Dashboard() {
-    const response = await fetch('https://api.mercadolibre.com/trends/MLB?limit=200', {
+    const response = await fetch('https://api.mercadolibre.com/trends/MLB?', {
         headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         }
