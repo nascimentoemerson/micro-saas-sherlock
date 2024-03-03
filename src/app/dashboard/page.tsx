@@ -5,10 +5,12 @@ import MainContent from "@/components/ui/main";
 
 export default function Component() {
     return (
-        <div key="1" className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+        <div key="1" className="flex min-h-screen">
             <SideBar />
-            <Header />
-            <MainContent />\
+            <div className="flex-1 flex flex-col">
+                <Header />
+                <MainContent />
+            </div>
         </div>
     );
 }
